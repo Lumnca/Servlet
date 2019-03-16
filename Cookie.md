@@ -152,3 +152,72 @@ public class Servlet extends HttpServlet {
 
 运行3秒后，你将看到所有的Cookies的信息。
 
+还可以通过 Servlet 删除 Cookie，删除 Cookie 是非常简单的。如果您想删除一个 cookie，那么您只需要按照以下三个步骤进行：
+
+* 读取一个现有的 cookie，并把它存储在 Cookie 对象中。
+* 使用 setMaxAge() 方法设置 cookie 的年龄为零，来删除现有的 cookie。
+* 把这个 cookie 添加到响应头。
+
+如下，依次删除，当数量不足时又添加：
+
+```java
+public class Servlet extends HttpServlet {
+
+
+    public void init(HttpServletRequest request, HttpServletResponse response) throws ServletException
+    {
+
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        response.setIntHeader("Refresh",3);
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out  = response.getWriter();
+
+        Cookie[] cookies = request.getCookies();
+
+        if(cookies.length<2){
+            Cookie cookie1 = new Cookie("UserName","Lumnca");
+            Cookie cookie2 = new Cookie("Identity","Administration");
+            cookie1.setMaxAge(60);
+            cookie2.setMaxAge(60);
+            response.addCookie(cookie1);
+            response.addCookie(cookie2);
+        }
+
+
+        for(int i=0;i<cookies.length;i++){
+            out.print("  Cookie名称:  "+cookies[i].getName()+"   Cookie值："+cookies[i].getValue()+"<br>");
+        }
+
+        Cookie del = cookies[cookies.length-1];
+        if(del!=null&&cookies.length!=1){
+            del.setMaxAge(0);
+            response.addCookie(del);
+        }
+    }
+    public  void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+            doGet(request,response);
+    }
+    public void destroy()
+    {
+        // 什么也不做
+    }
+}
+```
+
+以上就是Cookies的基本操作，但是Cookies的真正作用并不是这些，则需要和用户验证联系到一起。后面会介绍这种验证方式。
+
+
+
+
+
+
+
+
+
+
+
+
+
