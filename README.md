@@ -17,3 +17,5 @@
 :baby_chick:[Cookies处理](https://github.com/Lumnca/Servlet/blob/master/Cookie.md)
 
 :baby_chick:[Session跟踪](https://github.com/Lumnca/Servlet/blob/master/Session.md)
+
+:baby_chick:[重定向](https://github.com/Lumnca/Servlet/blob/master/%E9%87%8D%E5%AE%9A%E5%90%91.md)
