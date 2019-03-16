@@ -1,5 +1,4 @@
 # Servlet
-Java Servlet架构 
 
 采用IDEA使用Servlet
 
