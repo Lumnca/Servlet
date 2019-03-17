@@ -21,3 +21,5 @@
 :baby_chick:[重定向](https://github.com/Lumnca/Servlet/blob/master/%E9%87%8D%E5%AE%9A%E5%90%91.md)
 
 :baby_chick:[过滤器](https://github.com/Lumnca/Servlet/blob/master/%E8%BF%87%E6%BB%A4%E5%99%A8.md)
+
+:baby_chick:[异常处理](https://github.com/Lumnca/Servlet/blob/master/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.md)
