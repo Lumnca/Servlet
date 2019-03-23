@@ -141,5 +141,59 @@ uri属性确定标签库的位置，prefix属性指定标签库的前缀。
 
 `<jsp:directive.taglib uri="uri" prefix="prefixOfTag" />`
 
+### :notebook:JSP 动作元素 ###
+
+与JSP指令元素不同的是，JSP动作元素在请求处理阶段起作用。JSP动作元素是用XML语法写成的。
+
+利用JSP动作可以动态地插入文件、重用JavaBean组件、把用户重定向到另外的页面、为Java插件生成HTML代码。
+
+动作元素只有一种语法，它符合XML标准：
+
+`<jsp:action_name attribute="value" />`
+
+动作元素基本上都是预定义的函数，JSP规范定义了一系列的标准动作，它用JSP作为前缀，可用的标准动作元素如下：
+
+|语法|	描述|
+|:---|:---|
+|jsp:include|	在页面被请求的时候引入一个文件。|
+|jsp:useBean|	寻找或者实例化一个JavaBean。|
+|jsp:setProperty|	设置JavaBean的属性。|
+|jsp:getProperty|	输出某个JavaBean的属性。|
+|jsp:forward|	把请求转到一个新的页面。|
+|jsp:plugin	|根据浏览器类型为Java插件生成OBJECT或EMBED标记。|
+|jsp:element	|定义动态XML元素|
+|jsp:attribute	|设置动态定义的XML元素属性。
+|jsp:body	|设置动态定义的XML元素内容。|
+|jsp:text|	在JSP页面和文档中使用写入文本的模板|
+
+
+**常见的属性**
+
+所有的动作要素都有两个属性：id属性和scope属性。
+
+  **id属性：**
+
+  >id属性是动作元素的唯一标识，可以在JSP页面中引用。动作元素创建的id值可以通过PageContext来调用。
+
+  **scope属性：**
+
+>该属性用于识别动作元素的生命周期。 id属性和scope属性有直接关系，scope属性定义了相关联id对象的寿命。 scope属性有四个可能的值： page(当前页面), request(请求), session(会话), 和 application (应用程序)。
+
+
+**<jsp:include>动作元素**
+
+`<jsp:include>动作元素用来包含静态和动态的文件。该动作把指定文件插入正在生成的页面。语法格式如下：`
+
+`<jsp:include page="相对 URL 地址" flush="true" />`
+
+　前面已经介绍过include指令，它是在JSP文件被转换成Servlet的时候引入文件，而这里的jsp:include动作不同，插入文件的时间是在页面被请求的时候。
+
+以下是include动作相关的属性列表。
+
+page :	包含在页面中的相对URL地址。
+flush :	布尔属性，定义在包含资源前是否刷新缓存区。
+
+
+
 
 
