@@ -1,6 +1,6 @@
-# Servlet
+# Servlet&JSP
 
-采用IDEA使用Servlet
+采用IDEA使用Servlet与JSP
 
 :baby_chick:[安装与配置](https://github.com/Lumnca/Servlet/blob/master/%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md)
 
