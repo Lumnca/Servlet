@@ -107,6 +107,35 @@ public void jspDestroy()
 }
 ```
 
+### :game_die:JSP实例 ###
 
+下面使用这几种方法：
+
+```java
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head>
+    <title>BCS作业平台</title>
+    <link rel="icon"  href="img/电脑申请.png">
+      <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+  </head>
+  <body>
+  <%!
+        private int i = 0;
+        public void jspInit(){
+            i++;
+            System.out.println("开始初始化");
+        }
+  %>
+  <%!
+       public void jspDestroy(){
+           System.out.println("销毁开始");
+       }
+  %>
+  <h3><%= i %></h3>
+  </body>
+</html>
+
+```
 
 
