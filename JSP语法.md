@@ -166,6 +166,7 @@ uri属性确定标签库的位置，prefix属性指定标签库的前缀。
 |jsp:body	|设置动态定义的XML元素内容。|
 |jsp:text|	在JSP页面和文档中使用写入文本的模板|
 
+***
 
 **常见的属性**
 
@@ -179,6 +180,7 @@ uri属性确定标签库的位置，prefix属性指定标签库的前缀。
 
 >该属性用于识别动作元素的生命周期。 id属性和scope属性有直接关系，scope属性定义了相关联id对象的寿命。 scope属性有四个可能的值： page(当前页面), request(请求), session(会话), 和 application (应用程序)。
 
+***
 
 **<jsp:include>动作元素**
 
@@ -193,7 +195,144 @@ uri属性确定标签库的位置，prefix属性指定标签库的前缀。
 page :	包含在页面中的相对URL地址。
 flush :	布尔属性，定义在包含资源前是否刷新缓存区。
 
+***
+
+**实例**
+
+以下我们定义了两个文件 date.jsp 和 main.jsp，代码如下所示：
+
+date.jsp文件代码：
+
+```java
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<p>
+   今天的日期是: <%= (new java.util.Date()).toLocaleString()%>
+</p>
+```
+
+main.jsp文件代码：
+
+```java
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+
+<h2>include 动作实例</h2>
+<jsp:include page="date.jsp" flush="true" />
+
+</body>
+</html>
+```
+
+现在将以上两个文件放在服务器的根目录下，访问main.jsp文件即可。
+
+***
+
+**<jsp:useBean>动作元素**
+
+jsp:useBean 动作用来加载一个将在JSP页面中使用的JavaBean。即类对象引入与访问
+
+这个功能非常有用，因为它使得我们可以发挥 Java 组件复用的优势。
+
+jsp:useBean动作最简单的语法为：
+
+`<jsp:useBean id="name" class="package.class" />`
+
+name是类实例化的名称，class是类/包引入的url。
+
+在JSP中如果要应用JSP提供的Javabean的标签来操作简单类的话，则此类必须满足如下的开发要求：
+
+ * (1)所有的类必须放在一个包中，在WEB中没有包的是不存在的；
+
+ * (2)所有的类必须声明为public class，这样才能够被外部所访问；
+
+ * (3)类中所有的属性都必须封装，即：使用private声明；
+
+ * (4)封装的属性如果需要被外部所操作，则必须编写对应的setter、getter方法；
+
+ * (5)一个JavaBean中至少存在一个无参构造方法，此为JSP中的标签所使用。  
+ 
+在类载入后，我们既可以通过 `jsp:setProperty` 和 `jsp:getProperty `动作来修改和检索bean的属性。
+
+***
+
+如下是Student类的代码：
+
+```java
+package Deal;
+
+public class Student {
+    private int ID;
+    private String Name;
+    public  Student(){
+        
+    }
+    public  Student(int i,String n){
+        ID = i;
+        Name = n;
+    }
+    public String getName(){
+        return  Name;
+    }
+    public  int getID(){
+        return  ID;
+    }
+    public  void setID(int id){
+        ID =id;
+    }
+    public  void setName(String name){
+        Name = name;
+    }
+}
+```
+
+下面就可以在jsp中使用这个：
+
+```java
+  <body>
+        <jsp:useBean id="stu" class="Deal.Student"  ></jsp:useBean>
+
+        <%
+            stu.setID(26);           //赋值
+            stu.setName("lumnca");
+        %>
+
+         <h2> ID:<%=stu.getID() %> </h2>      //获取
+         <h2> Name:<%=stu.getName() %> </h2>
+  </body>
+```
+
+当然也可以使用`jsp:setProperty` 和 `jsp:getProperty `动作来修改和检索bean的属性。
+
+```java
+  <body>
+        <jsp:useBean id="stu" class="Deal.Student"  ></jsp:useBean>
+
+        <jsp:setProperty name="stu" property="ID" value="206" ></jsp:setProperty>
+        <jsp:setProperty name="stu" property="name" value="Lumnca"></jsp:setProperty>
 
 
+         <h2> ID: <jsp:getProperty name="stu" property="ID"></jsp:getProperty> </h2>
+         <h2> Name:<%=stu.getName() %> </h2>
+  </body>
+```
 
+从上面可以看出`jsp:setProperty` 和 `jsp:getProperty `动作主要参数为name，property。对于`jsp:setProperty`含有value参数用于修改值。
+
+***
+
+**<jsp:forward> 动作元素**
+
+　jsp:forward动作把请求转到另外的页面。jsp:forward标记只有一个属性page。语法格式如下所示：
+
+`<jsp:forward page="相对 URL 地址" />`
+
+有关其他动作不做解释。
 
