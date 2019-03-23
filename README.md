@@ -5,6 +5,8 @@
 ### JSP
 :rooster:[JSP简介](https://github.com/Lumnca/Servlet/blob/master/JSP%E7%AE%80%E4%BB%8B.md)
 
+:rooster:[JSP语法](https://github.com/Lumnca/Servlet/blob/master/JSP%E8%AF%AD%E6%B3%95.md)
+
 ### Servlet
 
 :baby_chick:[安装与配置](https://github.com/Lumnca/Servlet/blob/master/%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md)
