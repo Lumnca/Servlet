@@ -9,6 +9,8 @@
 
 :rooster:[JSP隐藏对象](https://github.com/Lumnca/Servlet/blob/master/%E9%9A%90%E5%BC%8F%E5%AF%B9%E8%B1%A1.md)
 
+:rooster:[数据库连接池](https://github.com/Lumnca/Servlet/blob/master/%E8%BF%9E%E6%8E%A5%E6%B1%A0.md)
+
 ### Servlet
 
 :baby_chick:[安装与配置](https://github.com/Lumnca/Servlet/blob/master/%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md)
