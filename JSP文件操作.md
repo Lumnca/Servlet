@@ -81,5 +81,21 @@ File类的其他实例方法还可以参见java的文件操作方法。与java�
 
 第二个参数决定了是否是在文件末尾添加内容。
 
+值得注意的是在IDEA中引入外部文件需要在xml中添加文件类型：
 
+```xml
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.txt</url-pattern>
+    </servlet-mapping>
+```
+
+上面只是添加了一种.txt的类型文件，添加其他类型同理：
+
+```xml
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.文件扩展名</url-pattern>
+    </servlet-mapping>
+```
 
