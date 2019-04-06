@@ -87,8 +87,58 @@ EL本身内建了11个隐含对象，用户可以通过这些对象，取得特�
  
  其中对于请求与相应和全局对象可以直接用变量名直接显示，其余的需要使用实例对象的方法来获取。某些方法还可以使用get来获取。也可以通过request来获取。如果添加类对象的话，也可以使用成员运算符访问。
  
+### :ledger:核心标签 ###
  
- 
- 
+核心标签提供了一般性的语言功能，例如变量，循环，条件控制及基本输入输出，URL相关操作等，这种标签以字母c为前缀词，如下：
+
+```java
+<c:out value="Hello"/>
+```
+上面可以显示hello，使用核心标签首先需要引入JSTL包，下载地址[JSTL库](http://static.runoob.com/download/jakarta-taglibs-standard-1.1.2.tar.gz)
+
+下载 jakarta-taglibs-standard-1.1.2.zip 包并解压，将 jakarta-taglibs-standard-1.1.2/lib/ 下的两个 jar 文件：standard.jar 和 jstl.jar 文件拷贝到 /WEB-INF/lib/ 下。
+
+将 tld 下的需要引入的 tld 文件复制到 WEB-INF 目录下。
+
+接下来我们在 web.xml 文件中添加以下配置：
+
+```xml
+    <jsp-config>
+    <taglib>
+    <taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
+    <taglib-location>/WEB-INF/fmt.tld</taglib-location>
+    </taglib>
+    <taglib>
+    <taglib-uri>http://java.sun.com/jsp/jstl/fmt-rt</taglib-uri>
+    <taglib-location>/WEB-INF/fmt-rt.tld</taglib-location>
+    </taglib>
+    <taglib>
+    <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+    <taglib-location>/WEB-INF/c.tld</taglib-location>
+    </taglib>
+    <taglib>
+    <taglib-uri>http://java.sun.com/jsp/jstl/core-rt</taglib-uri>
+    <taglib-location>/WEB-INF/c-rt.tld</taglib-location>
+    </taglib>
+    <taglib>
+    <taglib-uri>http://java.sun.com/jsp/jstl/sql</taglib-uri>
+    <taglib-location>/WEB-INF/sql.tld</taglib-location>
+    </taglib>
+    <taglib>
+    <taglib-uri>http://java.sun.com/jsp/jstl/sql-rt</taglib-uri>
+    <taglib-location>/WEB-INF/sql-rt.tld</taglib-location>
+    </taglib>
+    <taglib>
+    <taglib-uri>http://java.sun.com/jsp/jstl/x</taglib-uri>
+    <taglib-location>/WEB-INF/x.tld</taglib-location>
+    </taglib>
+    <taglib>
+    <taglib-uri>http://java.sun.com/jsp/jstl/x-rt</taglib-uri>
+    <taglib-location>/WEB-INF/x-rt.tld</taglib-location>
+    </taglib>
+    </jsp-config>
+```
+
+
  
  
