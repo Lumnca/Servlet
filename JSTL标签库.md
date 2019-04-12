@@ -139,6 +139,8 @@ EL本身内建了11个隐含对象，用户可以通过这些对象，取得特�
     </jsp-config>
 ```
 
+这里不对标签作介绍，可以参考[菜鸟教程](http://www.runoob.com/jsp/jsp-jstl.html)
+
 
  
  
