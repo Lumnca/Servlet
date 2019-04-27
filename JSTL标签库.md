@@ -139,8 +139,94 @@ EL本身内建了11个隐含对象，用户可以通过这些对象，取得特�
     </jsp-config>
 ```
 
-这里不对标签作介绍，可以参考[菜鸟教程](http://www.runoob.com/jsp/jsp-jstl.html)
+
+**out标签**
+
+```jsp
+  <c:out value="${sessionScope.user.id}" default="<h2>Hello</h2>" escapeXml="false"></c:out>
+  
+  value:显示值
+  default：显示值为空或者null显示的值
+  escapeXml：是否转义
+```
+
+**if标签**
+
+```jsp
+      <c:if test="${sessionScope.user==null}">
+          没有登录
+      </c:if>
+      
+      test：测试条件
+      只能满足条件显示
+```
+
+**choose,when,otherwise标签**
+
+```jsp
+        <%
+          application.setAttribute("a",5);
+        %>
+        <c:choose>
+            <c:when test="${a}<2">
+                小于2
+            </c:when>
+            <c:when test="${a}<5&&${a}>2">
+                大于2小于5
+            </c:when>
+            <c:otherwise>
+                等于大于5
+            </c:otherwise>
+        </c:choose>
+        
+        等同于if-else
+ ```
+
+最实用的遍历标签forEach标签。可以循环输出一样的标签元素，用于列表与表格：
+
+它有一下几个属性：
+
+|属性|类型|描述|
+|:--:|:--:|:--|
+|var|字符型|用于遍历当前项目的变量名称|
+|items|支持的类型|遍历的对象集合|
+|varStatus|字符串|保持遍历状态的名称|
+|begin|整数|如果指定items，遍历将从指定位置开始。没有指定从0开始|
+|end|整数|如果指定，从位置结束，没有则到达索引值停止|
+|step|整数|遍历间隔，必须大于等于1|
 
 
+从0到5循环：
+
+```jsp
+    <c:forEach var="item" begin="0" end="5">
+        <c:out value="${item}"></c:out>
+    </c:forEach>
+```
+
+遍历header所有的属性
+
+```jsp
+        <c:forEach var="item" items="${header}">
+            <c:out value="${item.value}"></c:out>
+        </c:forEach>
+```
+
+ 列表循环：
  
+ ```jsp
+       <%
+            List<String> list = new ArrayList<>();
+            list.add("Abo");
+            list.add("Modee");
+            list.add("Erdd");
+            application.setAttribute("list",list);
+        %>
+        <c:forEach var="item" items="${list}">
+            <c:out value="${item}"></c:out>
+        </c:forEach>
+```
  
+
+
+
