@@ -227,6 +227,32 @@ EL本身内建了11个隐含对象，用户可以通过这些对象，取得特�
         </c:forEach>
 ```
  
+配合表格多列输出：
 
+```jsp
+        <%
+            List<Student> list = new ArrayList<>();
+            list.add(new Student(5246,"Lumnca","aaaa"));
+            list.add(new Student(4446,"Kanmxa","bbaa"));
+            list.add(new Student(4746,"kianxx","abba"));
+            application.setAttribute("list",list);
+        %>
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th>ID</th>
+                <th>密码</th>
+            </tr>
+        <tbody>
+        <c:forEach var="item" items="${list}">
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.ID}</td>
+                <td>${item.pwd}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+        </table>
+```
 
 
